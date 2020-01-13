@@ -11,7 +11,7 @@ public class Person {
     // will have the same value for this field
     public static final int MINIMUM_AGE = 16;
 
-    private static int count = 0;
+    private static int lastId = 0;
 
     // Fields - These are variables that hold data 
     // for the resulting objects from this class
@@ -26,7 +26,7 @@ public class Person {
      * 
      * A constructor that has no parameters is called the default constructor
      */ 
-    public Person() {  count++; }
+    public Person() {  lastId++; }
 
     /**
      * A method that has the same name as the class
@@ -43,7 +43,7 @@ public class Person {
         this.lastName = lastName;   
         this.birthDate = birthDate; 
         
-        count++;
+        lastId++;
     }
 
     /**
@@ -85,7 +85,7 @@ public class Person {
     }
 
     public static int getCount() {
-        return count;
+        return lastId;
     }
 
     // EXERCISE: What are some methods that you think a person object might need?
