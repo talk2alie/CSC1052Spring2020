@@ -4,9 +4,8 @@ import java.util.Hashtable;
  * Represents a collection of people
  */
 public class Roster {
-    private int count = 0;
     private int initialCapacity = 28;
-    private Hashtable<Integer, Person> people;
+    private Hashtable<Integer, Student> people;
     
     public Roster() {
         people = new Hashtable<>(initialCapacity);
@@ -17,11 +16,13 @@ public class Roster {
         people = new Hashtable<>(this.initialCapacity);
     }
 
-    public void register(Person person) {
-        people.put(++count, person);
+    public void register(Student student) {
+        // Exercise: Make this method polymorphic
+
+        people.put(student.getId(), student);
     }
 
-    public Person find(int id) {
+    public Student find(int id) {
         return people.get(id);
     }
 }
