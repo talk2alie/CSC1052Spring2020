@@ -6,6 +6,9 @@ import java.time.LocalDate;
 public class Student extends Person {
 
     private final int id;
+    private String major;
+    private String minor;
+    private int graduationYear;
 
     public Student() {
         super();
