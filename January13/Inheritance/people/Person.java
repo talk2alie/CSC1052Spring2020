@@ -1,3 +1,5 @@
+package people; // This statement indicates the compilation unit in this file, Person, is in the package people
+
 import java.time.LocalDate;
 
 /**
@@ -88,6 +90,11 @@ public class Person {
         return count;
     }
 
+    @Override
+    public String toString()
+    {
+        return firstName + " " + lastName;
+    }
     // EXERCISE: What are some methods that you think a person object might need?
     // Implement them here
 }

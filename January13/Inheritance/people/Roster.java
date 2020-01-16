@@ -1,4 +1,7 @@
+package people;
 import java.util.Hashtable;
+
+import people.Student;
 
 /**
  * Represents a collection of people

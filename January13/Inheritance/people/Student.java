@@ -1,14 +1,10 @@
+package people;
+
 import java.time.LocalDate;
 
-/**
- * Student
- */
 public class Student extends Person {
 
     private final int id;
-    private String major;
-    private String minor;
-    private int graduationYear;
 
     public Student() {
         super();
@@ -23,4 +19,10 @@ public class Student extends Person {
     public int getId() {
         return id;
     }
+
+    @Override
+    public String toString() {
+        return getFirstName() + " " + id;
+    }
 }
+
