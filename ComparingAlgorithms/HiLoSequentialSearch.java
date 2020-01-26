@@ -16,18 +16,15 @@ public class HiLoSequentialSearch {
         System.out.println("------------------------------------------------------------");
         System.out.println();
         
-        find(number, high);
+        find(number);
     }
 
-    static void find(int number, int high) {
-        // Set guess to 0
-        int guess = 0;
-        do {
-            // Increment guess by 1
-            guess++;
-
-            // Announce Guess
-            System.out.println("My current guess is: " + guess);
-        } while(guess != number);
+    /**
+     * Uses the Sequential Search algorithm to find the give number, 
+     * starting from 1
+     * @param number
+     */
+    static void find(int number) {
+        
     }
 }
