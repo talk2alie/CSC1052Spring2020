@@ -34,7 +34,12 @@ public class HiLoSequentialSearch {
      * @param number
      */
     static void find(int number) {
-        
+        int guess = 0;
+
+        do {
+            guess++;
+            System.out.println("My current guess is: " + guess);
+        } while(guess != number);
     }
 }
 
