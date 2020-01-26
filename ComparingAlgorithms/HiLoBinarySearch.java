@@ -1,8 +1,6 @@
 import java.util.Random;
 
-/**
- * HiLoBinarySearch
- */
+
 public class HiLoBinarySearch {
 
     public static void main(String[] args) {
@@ -38,3 +36,6 @@ public class HiLoBinarySearch {
         
     }
 }
+
+
+
