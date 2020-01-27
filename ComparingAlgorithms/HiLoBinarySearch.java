@@ -1,6 +1,5 @@
 import java.util.Random;
 
-
 public class HiLoBinarySearch {
 
     public static void main(String[] args) {
@@ -33,9 +32,26 @@ public class HiLoBinarySearch {
      * @param n - The highest number in a range from 1 to n
      */
     static void find(int number, int n) {
+        // Set range to 1 ... N
+        int low = 1;
+        int high = n;
+        int guess;
         
+        do {
+            // Set guess to middle of range
+            guess = (low + high) / 2;
+
+            // Anounce guess
+            System.out.println("My current guess is: " + guess);
+            if(guess > number) {
+                // Set range to first half of range
+                high = ((low + high) / 2) - 1;
+            }
+
+            if(guess < number) {
+                // Set range to second half of range
+                low = ((low + high) / 2) + 1;
+            }
+        } while (guess != number);
     }
 }
-
-
-
