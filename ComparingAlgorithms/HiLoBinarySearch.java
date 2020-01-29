@@ -8,7 +8,7 @@ public class HiLoBinarySearch {
 
          // Alice says her number is between 1; low, and 1000; high
          final int low = 1;
-         final int high = 1000;
+         final int high = 10;
  
          // Randomly select Alice's number between 1 and 1000 (Hope you remember this from 1051)
          int number = random.nextInt(high) + low;
