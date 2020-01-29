@@ -4,7 +4,7 @@
 public class SelectionSort {
 
     public static void main(String[] args) {
-        int[] numbers = {15, 10, 17, 3, 12, 0, 19, 12, 33, 9};
+        int[] numbers = {3, 1, 2, 5, 4};
         print(numbers);
 
         selectionSort(numbers);
@@ -19,15 +19,14 @@ public class SelectionSort {
     }
 
     static void selectionSort(int[] numbers) {
-        for(int i = 0; i < numbers.length; ++i) {
-            int currentIndex = i;
-            int minimumINdex = i;
-            for(int j = i + 1; j < numbers.length; ++j) {
-                if(numbers[j] < numbers[minimumINdex]) {
-                    minimumINdex = j;
+        for(int currentIndex = 0; currentIndex <= numbers.length - 2; ++currentIndex) {
+            int minimumIndex = currentIndex;
+            for(int check = currentIndex + 1; check <= numbers.length - 1; ++check) {
+                if(numbers[check] < numbers[minimumIndex]) {
+                    minimumIndex = check;
                 }
             }
-            swap(currentIndex, minimumINdex, numbers);
+            swap(currentIndex, minimumIndex, numbers);
         }
     }
 
