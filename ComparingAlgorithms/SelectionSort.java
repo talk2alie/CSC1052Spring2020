@@ -5,17 +5,10 @@ public class SelectionSort {
 
     public static void main(String[] args) {
         int[] numbers = {3, 1, 2, 5, 4};
-        print(numbers);
+        ArrayUtility.print(numbers);
 
         selectionSort(numbers);
-        print(numbers);
-    }
-
-    static void print(int[] numbers) {
-        for(int number : numbers) {
-            System.out.print(number + " ");
-        }
-        System.out.println();
+        ArrayUtility.print(numbers);
     }
 
     static void selectionSort(int[] numbers) {
@@ -26,13 +19,7 @@ public class SelectionSort {
                     minimumIndex = check;
                 }
             }
-            swap(currentIndex, minimumIndex, numbers);
+            ArrayUtility.swap(currentIndex, minimumIndex, numbers);
         }
-    }
-
-    private static void swap(int currentIndex, int minimumINdex, int[] numbers) {
-        int temp = numbers[currentIndex];
-        numbers[currentIndex] = numbers[minimumINdex];
-        numbers[minimumINdex] = temp;
     }
 }
