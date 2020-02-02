@@ -16,17 +16,11 @@ public class ReverseArray {
         ArrayUtility.print(numbers);
     }
 
-    private static void reverse(int[] numbers) {
-        // set front to 0
-        // set back to n - 1
-        // while front < back
-        // swap
-        // increase front and decrease back by 1
-
-
+    private static void reverse(int[] numbers) {    
         for(int front = 0, back = numbers.length - 1; front < back; front++, back--) {
-            ArrayUtility.swap(front, back, numbers);
+            swap(front, back, numbers);
         }
-
     }
+
+    static void swap(int left, int right, int[] numbers) {}
 }
