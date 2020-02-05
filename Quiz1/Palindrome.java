@@ -31,7 +31,11 @@ public class Palindrome {
     }
 
     static boolean isPalindrome(String text) {
-        if (text == null || text.length() <= 1) {
+        if(text == null) {
+            return false;
+        }
+
+        if (text.length() <= 1) {
             return true;
         }
 
