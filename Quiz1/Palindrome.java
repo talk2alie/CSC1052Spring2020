@@ -23,21 +23,24 @@ public class Palindrome {
             "madam",
             "Lolllapulosa"
         };
-        for (String phrase : phrases) {
-            System.out.println(isPalindrome(phrase));
+        for (int i = 0; i < phrases.length; ++i) {
+            System.out.println((i + 1) + ". " + isPalindrome(phrases[i]));
         }
 
         System.err.println();
     }
 
     static boolean isPalindrome(String text) {
-        if(text == null || text.length() <= 1) {
+        if (text == null || text.length() <= 1) {
             return true;
         }
 
-        text = text.replace(" ", "").toLowerCase();
-        for(int front = 0, back = text.length() - 1; front < back; front++, back--) {
-            if(text.charAt(front) != text.charAt(back)) {
+        for (int front = 0, back = text.length() - 1; front < back; front++, back--) {
+            char frontCharacter = text.charAt(front) != ' ' ? Character.toLowerCase(text.charAt(front))
+                    : Character.toLowerCase(text.charAt(++front));
+            char backCharacter = text.charAt(back) != ' ' ? Character.toLowerCase(text.charAt(back))
+                    : Character.toLowerCase(text.charAt(--back));
+            if (frontCharacter != backCharacter) {
                 return false;
             }
         }
