@@ -1,16 +1,11 @@
 package implementation;
 
-import java.text.DecimalFormat;
-import java.text.NumberFormat;
-import java.util.Locale;
-
-import abstraction.IPrintable;
-import abstraction.IShape;
+import abstraction.PrintableShape;
 
 /**
  * Rectangle
  */
-public class Rectangle implements IShape, IPrintable {
+public class Rectangle extends PrintableShape {
 
     protected double length;
     protected double width;
@@ -30,15 +25,4 @@ public class Rectangle implements IShape, IPrintable {
         return length * width;
     }
 
-    @Override
-    public void print() {
-        String name = this.getClass().getSimpleName();
-
-        NumberFormat formatter = DecimalFormat.getInstance(Locale.US);
-        String area = formatter.format(area());
-        String perimeter = formatter.format(perimeter());
-
-        System.out.println("The area of the " + name + " is: " + area);
-        System.out.println("The perimeter of the " + name + " is: " + perimeter);
-    }
 }
