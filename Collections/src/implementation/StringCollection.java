@@ -1,4 +1,6 @@
-package collections;
+package implementation;
+
+import abstraction.ICollection;
 
 public class StringCollection implements ICollection<String> {
 
@@ -9,6 +11,6 @@ public class StringCollection implements ICollection<String> {
 
     @Override
     public String top() {
-       // Code here
+       return null;
     }
 }
