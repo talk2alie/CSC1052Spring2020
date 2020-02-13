@@ -1,7 +1,7 @@
 package abstraction;
 
 /**
- * Stack
+ * A container for elements of type T
  */
 public interface Stack<T> {
 

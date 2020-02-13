@@ -1,27 +1,28 @@
 package implementation;
 
 /**
- * An exception thrown when an attempt is made to add an element to a full stack
+ * An exception that is thrown when an attempt is made to view/remove an 
+ * element from an empty stack
  */
-public class StackOverflowException extends RuntimeException{
+public class StackUnderflowException extends RuntimeException {
 
     /**
      * Provides unique serialization ID for the type
      */
-    private static final long serialVersionUID = -7352697835574577110L;
+    private static final long serialVersionUID = -2015252839515998774L;
 
     /**
      * Creates an instance with no initial set up of fields
      */
-    public StackOverflowException() {
+    public StackUnderflowException() {
         super();
-    }
+    }    
 
     /**
      * Creates an instance with an initial error message
      * @param message The message to send back to the erroed code
      */
-    public StackOverflowException(String message) {
+    public StackUnderflowException(String message) {
         super(message);
     }
     
