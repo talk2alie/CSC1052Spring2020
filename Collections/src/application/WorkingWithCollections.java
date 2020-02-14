@@ -1,6 +1,6 @@
-package app;
+package application;
 
-import collections.Collection;
+import implementation.StringCollection;
 
 /**
  * WorkingWithCollections
@@ -9,8 +9,6 @@ public class WorkingWithCollections {
 
     public static void main(String[] args) {
 
-        Collection<String> strings = new Collection<>();
-        strings.push();
 
     }
 }
