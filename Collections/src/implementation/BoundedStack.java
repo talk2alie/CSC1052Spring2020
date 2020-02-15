@@ -3,7 +3,7 @@ package implementation;
 import abstraction.Stack;
 
 /**
- * BoundedStack
+ * Represents a structure that stores elements and provides stack access to them
  */
 public class BoundedStack<T> implements Stack<T> {
 
