@@ -7,7 +7,7 @@ import abstraction.Stack;
  */
 public class BoundedStack<T> implements Stack<T> {
 
-    private int topIndex;
+    private int lastOccupiedIndex;
     protected final int DEFAULT_CAPACITY = 10;
     private final int maxCapacity;
     private final T[] elements;
@@ -22,7 +22,7 @@ public class BoundedStack<T> implements Stack<T> {
         // Otherwise, we use the default max capacity on line 10
         this.maxCapacity = maxCapacity == 0 ? DEFAULT_CAPACITY : maxCapacity;
         elements = (T[]) new Object[this.maxCapacity];
-        topIndex = -1;
+        lastOccupiedIndex = -1;
     }
 
     /**
@@ -48,9 +48,15 @@ public class BoundedStack<T> implements Stack<T> {
         if (isFull()) {
             throw new StackOverflowException("The stack is full. Cannot add more elements");
         }
-        
-        topIndex++;
-        elements[topIndex] = element;
+
+        lastOccupiedIndex++;
+        int index = lastOccupiedIndex;
+        while(index > 0) {
+            elements[index] = elements[index - 1];
+            index--;
+        }
+
+        elements[index] = element;
     }
 
     @Override
@@ -58,9 +64,15 @@ public class BoundedStack<T> implements Stack<T> {
         if(isEmpty()) {
             throw new StackUnderflowException("The stack is emepty. Cannot remove an element from an empty stack");
         }
+        
+        int index = 1;
+        while(index <= lastOccupiedIndex) {
+            elements[index - 1] = elements[index];
+            index++;
+        }
 
-        elements[topIndex] = null;
-        topIndex--;
+        elements[lastOccupiedIndex] = null;
+        lastOccupiedIndex--;
     }
 
     @Override
@@ -69,17 +81,18 @@ public class BoundedStack<T> implements Stack<T> {
             throw new StackUnderflowException("The stack is emepty. Cannot view an element from an empty stack");
         }
 
-        return elements[topIndex];
+        final int FIRST = 0;
+        return elements[FIRST];
     }
 
     @Override
     public boolean isFull() {
-        return topIndex == (maxCapacity - 1);
+        return lastOccupiedIndex == (maxCapacity - 1);
     }
 
     @Override
     public boolean isEmpty() {
-        return topIndex == -1;
+        return lastOccupiedIndex == -1;
     }
 
 }
