@@ -6,15 +6,23 @@ import abstraction.Stack;
  * BoundedStack
  */
 public class BoundedStack<T> implements Stack<T> {
-    private T[] elements;
-    private int maxCapacity;
-    private final int DEFAULT_CAPACITY = 10;
-    private int topIndex;
 
-    public BoundedStack(int maxCapacity) {
-        this.maxCapacity = maxCapacity > 0 ? maxCapacity : DEFAULT_CAPACITY;
-        elements = (T[])new Object[this.maxCapacity];
-        topIndex = -1;
+    private int lastOccupiedIndex;
+    protected final int DEFAULT_CAPACITY = 10;
+    private final int maxCapacity;
+    private final T[] elements;
+
+    /**
+     * Creates a new bounded stack with the max capacity provided
+     * 
+     * @param maxCapacity The maximum number of elements the stack will hold
+     */
+    public BoundedStack(final int maxCapacity) {
+        // If the user provided a max capacity, we use it.
+        // Otherwise, we use the default max capacity on line 10
+        this.maxCapacity = maxCapacity == 0 ? DEFAULT_CAPACITY : maxCapacity;
+        elements = (T[]) new Object[this.maxCapacity];
+        lastOccupiedIndex = -1;
     }
 
     public BoundedStack() {
@@ -27,8 +35,14 @@ public class BoundedStack<T> implements Stack<T> {
             throw new StackOverflowException("Stack is full");
         }
 
-        topIndex++;
-        elements[topIndex] = element;
+        lastOccupiedIndex++;
+        int index = lastOccupiedIndex;
+        while(index > 0) {
+            elements[index] = elements[index - 1];
+            index--;
+        }
+
+        elements[index] = element;
     }
 
     @Override
@@ -36,9 +50,15 @@ public class BoundedStack<T> implements Stack<T> {
         if(isEmpty()) {
             throw new StackUnderflowException("Stack is empty");
         }
+        
+        int index = 1;
+        while(index <= lastOccupiedIndex) {
+            elements[index - 1] = elements[index];
+            index++;
+        }
 
-        elements[topIndex] = null;
-        topIndex--;
+        elements[lastOccupiedIndex] = null;
+        lastOccupiedIndex--;
     }
 
     @Override
@@ -47,18 +67,18 @@ public class BoundedStack<T> implements Stack<T> {
             throw new StackUnderflowException("Stack is empty");
         }
 
-        return elements[topIndex];
+        final int FIRST = 0;
+        return elements[FIRST];
     }
 
     @Override
     public boolean isFull() {
-        return (topIndex + 1) == maxCapacity;
+        return lastOccupiedIndex == (maxCapacity - 1);
     }
 
     @Override
     public boolean isEmpty() {
-        return topIndex == -1;
+        return lastOccupiedIndex == -1;
     }
-
     
 }
