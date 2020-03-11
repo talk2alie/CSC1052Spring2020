@@ -80,5 +80,13 @@ public class BoundedStack<T> implements Stack<T> {
     public boolean isEmpty() {
         return lastOccupiedIndex == -1;
     }
+
+    public int count() {
+        int count = 0;
+        while(elements[count] != null) {
+            count++;
+        }
+        return count;
+    }
     
 }

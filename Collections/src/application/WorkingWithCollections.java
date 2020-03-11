@@ -19,7 +19,7 @@ public class WorkingWithCollections {
             numbers.push(19);
             numbers.push(50);
             numbers.push(66);
-            numbers.push(33);
+            System.out.println(numbers.count());
         } catch (StackOverflowException e) {
             System.out.println(e.getMessage());
         } catch(StackUnderflowException e) {
