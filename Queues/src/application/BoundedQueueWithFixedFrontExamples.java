@@ -1,6 +1,7 @@
 package application;
 
-import implementation.BoundedQueueWithFixedFront;
+// import implementation.BoundedQueueWithFixedFront;
+import implementation.BoundedQueueWithFloatingFront;
 
 /**
  * BoundedQueueExamples
@@ -8,18 +9,31 @@ import implementation.BoundedQueueWithFixedFront;
 public class BoundedQueueWithFixedFrontExamples {
 
     public static void main(String[] args) {
-        BoundedQueueWithFixedFront<String> names = new BoundedQueueWithFixedFront<>();
+        BoundedQueueWithFloatingFront<String> names = new BoundedQueueWithFloatingFront<>();
         names.enqueue("Stephen");
         names.enqueue("Henry");
         names.enqueue("Celeste");
         names.enqueue("Erica");
         names.enqueue("Eric");
 
-        System.out.println(names.size());
+        names.dequeue();
+        
+        names.enqueue("Penny");
+        names.enqueue("Howard");
+        names.enqueue("Rajesh");
 
-        while(!names.isEmpty()) {
-            System.out.println(names.dequeue());
-        }
+        names.dequeue();
+
+        names.enqueue("Amy");
+        names.enqueue("Leonard");
+        names.enqueue("Bernadette");
+        names.enqueue("Wil");
+        names.enqueue("Stewart");
+        names.enqueue("Lesley");
+
+        names.dequeue();
+        names.dequeue();
+        names.dequeue();        
 
         System.out.println(names.size());
     }
