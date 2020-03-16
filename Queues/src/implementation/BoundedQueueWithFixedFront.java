@@ -36,10 +36,11 @@ public class BoundedQueueWithFixedFront<T> implements Queue<T> {
         }
 
         T element = elements[FRONT_INDEX];
-        for(int front = 0; front <= backIndex; ++front) {
+        for(int front = 0; front < backIndex; ++front) {
             elements[front] = elements[front + 1];
         }
         
+        elements[backIndex] = null;
         backIndex--;
         return element;
     }

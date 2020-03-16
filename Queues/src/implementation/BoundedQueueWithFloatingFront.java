@@ -29,9 +29,9 @@ public class BoundedQueueWithFloatingFront<T> implements Queue<T> {
             throw new QueueOverflowException("The queue is full");
         }
 
-        size++;
         backIndex = (backIndex + 1) % maxCapacity;
         elements[backIndex] = element;
+        size++;
     }
 
     @Override
@@ -42,9 +42,9 @@ public class BoundedQueueWithFloatingFront<T> implements Queue<T> {
 
         T element = elements[frontIndex];
         elements[frontIndex] = null;
-        
         size--;
         frontIndex = (frontIndex + 1) % maxCapacity;
+        
         return element;
     }
 

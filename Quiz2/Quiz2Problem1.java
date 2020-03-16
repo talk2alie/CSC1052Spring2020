@@ -110,7 +110,25 @@ public class Quiz2Problem1 {
      * @param number The new number to add to the list
      */
     public static void insertSort(int value) {
-        // Take a deep breath, try to relax and consider all of the edge cases
-        // Please put your code here... Good luck! 😊
+        LinkNode<Integer> number = new LinkNode<>(value);
+        if(numbers == null) {
+            numbers = number;
+            return;
+        }
+
+        if(number.getValue() < numbers.getValue()) {
+            number.setNext(numbers);
+            numbers = number;
+            return;
+        }
+        
+        LinkNode<Integer> temp = numbers;
+        while(temp.getNext() != null && temp.getNext().getValue() < number.getValue()) {
+            temp = temp.getNext();
+        }
+
+        LinkNode<Integer> next = temp.getNext();
+        temp.setNext(number);
+        number.setNext(next);
     }
 }
