@@ -2,49 +2,51 @@ package implementation;
 
 import abstraction.Queue;
 
-public class BoundedLinkQueue<T> implements Queue<T> {
+public class BoundedCircularLinkQueue<T> implements Queue<T> {
 
     private int size;
-    private LinkNode<T> front;
     private LinkNode<T> back;
     private int maxCapacity;
     private final int DEFAULT_CAPACITY = 5;
 
-    public BoundedLinkQueue(int maxCapacity) {
+    public BoundedCircularLinkQueue(int size) {
         this.maxCapacity = maxCapacity == 0 ? DEFAULT_CAPACITY : maxCapacity;
     }
 
-    public BoundedLinkQueue() {
+    public BoundedCircularLinkQueue() {
         this(0);
     }
 
     @Override
     public void enqueue(T element) throws QueueOverflowException {
         if (isFull()) {
-            throw new QueueOverflowException("The queue is full");
+            throw new QueueOverflowException("Queue is full");
         }
 
         LinkNode<T> newElement = new LinkNode<>(element);
-        if (back == null) {
-            front = newElement;
+        if(back == null) {
+            back = newElement;
+            back.setNext(back);
         } else {
+            LinkNode<T> front = back.getNext();
             back.setNext(newElement);
+            newElement.setNext(front);
+            back = newElement;
         }
 
-        back = newElement;
         size++;
     }
 
     @Override
     public T dequeue() throws QueueUnderflowException {
-        if (isEmpty()) {
+        if(isEmpty()) {
             throw new QueueUnderflowException("Queue is empty");
         }
 
-        T element = front.getValue();
-        front = front.getNext();
+        T element = back.getNext().getValue();
+        back.setNext(back.getNext().getNext());
         size--;
-        if (front == null) {
+        if(size == 0) {
             back = null;
         }
 
@@ -66,4 +68,5 @@ public class BoundedLinkQueue<T> implements Queue<T> {
         return size;
     }
 
+    
 }

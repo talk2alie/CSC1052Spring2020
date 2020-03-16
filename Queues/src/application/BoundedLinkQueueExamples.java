@@ -9,7 +9,7 @@ import implementation.BoundedLinkQueue;
 public class BoundedLinkQueueExamples {
 
     public static void main(String[] args) {
-        BoundedLinkQueue<Integer> numbers = new BoundedLinkQueue<>();
+        BoundedCircularLinkQueue<Integer> numbers = new BoundedCircularLinkQueue<>();
         numbers.enqueue(5);
         numbers.enqueue(6);
         numbers.enqueue(7);
