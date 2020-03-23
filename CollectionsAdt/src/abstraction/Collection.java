@@ -1,8 +1,5 @@
 package abstraction;
 
-/**
- * Collection
- */
 public interface Collection<T> {
     boolean add(T element);
     T get(T element);

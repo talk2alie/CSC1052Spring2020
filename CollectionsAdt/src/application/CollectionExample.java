@@ -3,6 +3,7 @@ package application;
 import java.util.Scanner;
 
 import implementation.ArrayCollection;
+import implementation.Person;
 
 /**
  * CollectionExample
@@ -13,6 +14,7 @@ public class CollectionExample {
     static ArrayCollection<String> words = new ArrayCollection<>(CAPACITY);
 
     public static void main(String[] args) {
+
         System.out.println();
 
         boolean playAgain = false;

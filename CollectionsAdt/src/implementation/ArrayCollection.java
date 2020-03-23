@@ -2,11 +2,7 @@ package implementation;
 
 import abstraction.Collection;
 
-/**
- * ArrayCollection
- */
 public class ArrayCollection<T> implements Collection<T> {
-
     private int size = 0;
     private T[] elements;
     private int maxCapacity;
@@ -27,7 +23,7 @@ public class ArrayCollection<T> implements Collection<T> {
         if(isEmpty()) {
             return new SearchResult(isSuccessful, location);
         }
-
+        
         int index = 0;
         while(index < size) {
             if(elements[index].equals(element)) {

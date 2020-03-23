@@ -25,9 +25,9 @@ public class EqualsMethodExample {
         // in memory
         System.out.println("Is yetunde equal to yetundeAlias? " + yetunde.equals(yetundeAlias)); 
 
-        // To fix this so that we and the compiler have the same understanding of equality, we have 
-        // to override the equals method so that we can tell the compiler what it means for two Person 
-        // objects to be equal
+        // // To fix this so that we and the compiler have the same understanding of equality, we have 
+        // // to override the equals method so that we can tell the compiler what it means for two Person 
+        // // objects to be equal
 
     }
 }
